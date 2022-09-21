@@ -179,6 +179,7 @@ private char[] lesCaracteres;
 			 tab[cmpt-1] = (char)(r + 48);
 			 i = q; // i prend la valeur de q
 		}
+		// inverser le tableau
 		for (int l = 0; l < tab.length/2; l++) {
         	char tmp = tab[l];
         	tab[l] = tab[tab.length-l-1];
