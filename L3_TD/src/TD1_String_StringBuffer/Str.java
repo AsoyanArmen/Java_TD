@@ -168,22 +168,23 @@ private char[] lesCaracteres;
 	
 	// Retourne la représentation en chaîne de l’entier i. 
 	public static Str valueOf(int i) {
-		int q, r, cmpt=0;
-		Str s = new Str(new char[cmpt], 0, cmpt);
+		
+		int q, r, cmpt = 0;
+		char[] tab = new char[cmpt];
 		while (i > 0) {
 			 q = i/10;
 			 r = i%10;
 			 cmpt++;
+			 tab = Arrays.copyOf(tab, cmpt);
+			 tab[cmpt-1] = (char)(r + 48);
 			 i = q; // i prend la valeur de q
-			 for (int j = 0; j < s.lesCaracteres.length; j++){
-				 s.lesCaracteres[j] = (char)(r + 48); //r + '0'
-			 }
 		}
-		return s; 
+		for (int l = 0; l < tab.length/2; l++) {
+        	char tmp = tab[l];
+        	tab[l] = tab[tab.length-l-1];
+        	tab[tab.length-l-1] = tmp;
+        }
+		return new Str(tab, 0, tab.length);
 		
 	}
-	
-	
-	
-	
 }

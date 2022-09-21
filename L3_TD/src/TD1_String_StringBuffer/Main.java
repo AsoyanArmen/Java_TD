@@ -57,13 +57,13 @@ public class Main {
 		
 		
 		//test valueOf(boolean b)
-		System.out.println("Value of():" + Str.valueOf(true) + "+");
+		System.out.println("Value of(boolean b): " + Str.valueOf(true));
 		
 		//test valueOf(char c)
-		System.out.println("Value of():" + Str.valueOf('c') + "+");
+		System.out.println("Value of(char c): " + Str.valueOf('c'));
 		
 		//test valueOf(int i)
-		System.out.println("Value of():" + Str.valueOf(9) + "+");
+		System.out.println("Value of(int i): " + Str.valueOf(128378));
 		
 		
 		

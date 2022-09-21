@@ -76,8 +76,39 @@ public class Test {
         }
         System.out.println("Before deletion :" + Arrays.toString(arr));
         System.out.println("After deletion :" + Arrays.toString(arr_new));
-
+        System.out.println();
+        System.out.println();
+        System.out.println();
         
+        int i = 128378, cmpt=0;
+        char[] tab= new char[cmpt];
+        System.out.print("Chiffres décomposés : ");
+        while (i > 0) {
+            int q = i / 10;
+            int r = i % 10; // k = n1 - d * 10
+            cmpt++;
+            tab = Arrays.copyOf(tab, cmpt);
+            tab[cmpt-1] = (char)(r + 48);
+            i = q;
+            System.out.print(r + " ");
+            
+        }
+        System.out.println();
+        System.out.println("Compteur : " + cmpt);
+        System.out.println("Tableau des chiffres par défault (i.e ordre inverse): " + Arrays.toString(tab));
+        
+        for (int l = 0; l < tab.length/2; l++) {
+        	char tmp = tab[l];
+        	tab[l] = tab[tab.length-l-1];
+        	tab[tab.length-l-1] = tmp;
+        }
+        System.out.println("Tableau des chiffre dans le bon ordre: " + Arrays.toString(tab));
+        
+        
+        
+        
+        
+        /*
         int cmt=0;
         
         int n1 = 128;
@@ -105,36 +136,6 @@ public class Test {
              
             System.out.println(Arrays.toString(tab));
              //System.out.println(k);
-           
+         */
     }
-        
-        
-        
-        
-        /*
-        n1 = 128;
-        char[]tab = new char[cmt];
-        while (n1 > 0) {
-          int d = n1 / 10;
-          int k = n1 % 10; // k = n1 - d * 10
-          n1 = d;
-          System.out.println("JE COMPTE : " + cmt);
-          System.out.println(n1+"TEST N1");
-          System.out.println(tab.length);
-          for (int i=0; i<cmt; i++) {
-        	 tab[i] = (char)(k + '0');//Character.forDigit(k, 10); // 
-        	 System.out.println("LALA : " + Arrays.toString(tab));
-        	 System.out.println("Test");
-      		
-          }
-          
-         
-          System.out.println(k);
-        }
-        */
-        
-
-        
-	
-
 }
