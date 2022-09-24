@@ -169,23 +169,63 @@ private char[] lesCaracteres;
 	// Retourne la représentation en chaîne de l’entier i. 
 	public static Str valueOf(int i) {
 		
-		int q, r, cmpt = 0;
-		char[] tab = new char[cmpt];
-		while (i > 0) {
-			 q = i/10;
-			 r = i%10;
-			 cmpt++;
-			 tab = Arrays.copyOf(tab, cmpt);
-			 tab[cmpt-1] = (char)(r + 48);
-			 i = q; // i prend la valeur de q
+		int q, r;
+		char[] tab;
+		if (i < 0) {
+			int cmpt = 1;
+			tab = new char[cmpt];
+			tab[0] = '-';
+			i = -i;
+			while (i > 0){
+				q = i/10;
+				r = i%10;
+				cmpt++;
+				tab = Arrays.copyOf(tab, cmpt);
+				tab[cmpt-1] = (char)(r + 48);
+				i = q; // i prend la valeur de q
+			}
+			//System.out.println(Arrays.toString(tab));
+			for (int l = 0; l < tab.length/2; l++) {
+	        	char tmp = tab[l];
+	        	tab[l] = tab[tab.length-l-1];
+	        	tab[tab.length-l-1] = tmp;
+	        }
+			char tmp = tab[tab.length-1];
+			for (int k = tab.length-1; k > 0; k--) {
+				tab[k] = tab[k-1]; // ajuster par l'indice
+			}
+			tab[0] = tmp;
+			return new Str(tab, 0, tab.length);
 		}
+		else {
+			int cmpt = 0;
+			tab = new char[cmpt];
+			while(i > 0) {
+				q = i/10;
+				//System.out.println(q);
+				r = i%10;
+				System.out.println(r);
+				cmpt++;
+				tab = Arrays.copyOf(tab, cmpt);
+				tab[cmpt-1] = (char)(r + 48);
+				i = q; // i prend la valeur de q
+			}
+			for (int l = 0; l < tab.length/2; l++) {
+	        	char tmp = tab[l];
+	        	tab[l] = tab[tab.length-l-1];
+	        	tab[tab.length-l-1] = tmp;
+	        }
+			System.out.println(Arrays.toString(tab));
+			return new Str(tab, 0, tab.length);
+		}
+		/*
+		if (Character.getNumericValue(tab[0]) < 0) {
+			tab = Arrays.copyOf(tab, tab.length+1)
+		}
+		*/
+		
 		// inverse le tableau
-		for (int l = 0; l < tab.length/2; l++) {
-        	char tmp = tab[l];
-        	tab[l] = tab[tab.length-l-1];
-        	tab[tab.length-l-1] = tmp;
-        }
-		return new Str(tab, 0, tab.length);
+		
 		
 	}
 }

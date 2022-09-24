@@ -63,7 +63,7 @@ public class Main {
 		System.out.println("Value of(char c): " + Str.valueOf('c'));
 		
 		//test valueOf(int i)
-		System.out.println("Value of(int i): " + Str.valueOf(128378));
+		System.out.println("Value of(int i): " + Str.valueOf(-1234));
 		
 		
 		

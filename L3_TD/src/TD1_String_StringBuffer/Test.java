@@ -105,6 +105,13 @@ public class Test {
         System.out.println("Tableau des chiffre dans le bon ordre: " + Arrays.toString(tab));
         
         
+        String sBuffer1 = "sa90";
+        System.out.println(sBuffer1.contains("7"));
+        String sBuffer2 = "sa98";        
+        System.out.println(sBuffer1.substring(0, sBuffer1.length()/2).contentEquals(sBuffer2.substring(0, sBuffer2.length()/2)));
+        System.out.println(sBuffer1.indexOf("a"));
+       
+
         
         
         
